@@ -1,0 +1,62 @@
+% ============================================================================
+% Example CV Template
+% ============================================================================
+
+\documentclass[11pt,a4paper,sans]{moderncv}
+
+% moderncv themes
+\moderncvstyle{classic}
+\moderncvcolor{blue}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[scale=0.75]{geometry}
+
+% Personal information
+\name{Jane}{Doe}
+\title{Senior Software Engineer}
+\address{Street 123}{12345 Berlin}{Germany}
+\phone[mobile]{+49 123 4567890}
+\email{jane.doe@example.com}
+\social[github]{janedoe}
+\social[linkedin]{janedoe}
+
+% ============================================================================
+% Document Content
+% ============================================================================
+\begin{document}
+\makecvtitle
+
+\section{Work Experience}
+
+\cventry{2020--Present}{Senior Software Engineer}{TechCorp}{Berlin}{}{
+Led the development of a high-performance microservices architecture using Python and FastAPI.
+\begin{itemize}
+    \item Optimized database queries, reducing latency by 40\%.
+    \item Mentored junior developers and introduced code review best practices.
+\end{itemize}}
+
+\cventry{2018--2020}{Software Developer}{StartUp Inc}{Munich}{}{
+Developed and maintained a scalable web application using Django and React.}
+
+\section{Education}
+
+\cventry{2016--2018}{M.Sc. Computer Science}{TU Berlin}{Berlin}{}{}
+\cventry{2012--2016}{B.Sc. Computer Science}{University of Munich}{Munich}{}{}
+
+\section{Technical Expertise}
+
+\subsection{Programming \& Frameworks}
+\cvitem{Languages}{Python, JavaScript, Go, SQL}
+\cvitem{Frameworks}{FastAPI, Django, React, Node.js}
+
+\subsection{Cloud \& Infrastructure}
+\cvitem{Platforms}{AWS, Google Cloud}
+\cvitem{Tools}{Docker, Kubernetes, Terraform, Git}
+
+\section{Qualifications}
+
+\cvitem{Languages}{English (Native), German (Fluent)}
+\cvitem{Soft Skills}{Leadership, Problem Solving, Public Speaking}
+
+\end{document}

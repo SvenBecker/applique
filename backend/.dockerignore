@@ -1,0 +1,6 @@
+**
+!applique_backend
+!entrypoint.sh
+!alembic.ini
+!pyproject.toml
+!uv.lock

@@ -1,0 +1,52 @@
+% ============================================================================
+% Example Cover Letter Template
+% ============================================================================
+
+\documentclass[11pt,a4paper,sans]{moderncv}
+
+% variables (dynamically replaced when providing job posting data)
+\newcommand{\recipientname}{Hiring Manager}
+\newcommand{\companyname}{Company Name Here}
+\newcommand{\jobtitle}{Job Title Here}
+\newcommand{\streetaddress}{Street Address}
+\newcommand{\zipcode}{00000}
+\newcommand{\city}{City}
+
+% moderncv themes
+\moderncvstyle{classic}
+\moderncvcolor{blue}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[scale=0.75]{geometry}
+
+% Personal information
+\name{Jane}{Doe}
+\title{\jobtitle}
+\address{Street 123}{12345 Berlin}{Germany}
+\phone[mobile]{+49 123 4567890}
+\email{jane.doe@example.com}
+\social[github]{janedoe}
+\social[linkedin]{janedoe}
+
+% ============================================================================
+% Document Content
+% ============================================================================
+\begin{document}
+
+% Recipient data
+\recipient{\recipientname}{\companyname\\\streetaddress\\\zipcode{} \city}
+\date{\today}
+\opening{Dear \recipientname,}
+\closing{Sincerely,}
+\makelettertitle
+
+I am writing to express my strong interest in the \jobtitle{} position at \companyname. With over 6 years of experience in developing scalable web applications and leading technical teams, I am confident that my background and passion for clean code align perfectly with your requirements.
+
+In my current role at TechCorp, I have successfully led several high-profile projects, including the migration of our legacy monolith to a microservices architecture. This transition not only improved our system's reliability but also significantly increased the productivity of our development teams.
+
+I am particularly impressed by \companyname's commitment to innovation and its impact on the fintech industry. My expertise in Python, FastAPI, and cloud-native technologies makes me an ideal candidate to contribute to your ongoing success.
+
+I am eager to bring my technical skills and leadership experience to your team. Thank you for considering my application. I look forward to the possibility of discussing how my experience can benefit \companyname.
+
+\end{document}

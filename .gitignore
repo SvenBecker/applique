@@ -1,0 +1,48 @@
+# OS / Editor
+.DS_Store
+.idea
+
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+coverage.xml
+.hypothesis/
+.pytest_cache/
+
+# Documentation
+site/
+
+# Environments
+.env
+.venv
+.python-version
+
+# Input folder
+data/db.sqlite3
+data/cover_letters/**
+data/cvs/**
+data/personal_information/**
+!data/cvs/*.example.tex
+!data/cover_letters/*.example.tex
+!data/personal_information/*.example.tex
+
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fdb_latexmk
+*.fls

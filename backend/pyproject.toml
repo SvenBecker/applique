@@ -1,0 +1,150 @@
+[project]
+name = "applique-backend"
+version = "0.1.0"
+description = "Appliqué backend"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi>=0.128.0",
+  "uvicorn[standard]",
+  "httpx>=0.28.1",
+  "jinja2>=3.1.6",
+  "pydantic>=2.12.5",
+  "pydantic-ai-slim[ag-ui,openai,groq,google,anthropic,cohere,openrouter,mistral]>=1.39.0",
+  "pydantic-settings>=2.12.0",
+  "sqlalchemy[asyncio]>=2.0.45",
+  "aiosqlite",
+  "opentelemetry-api",
+  "opentelemetry-sdk",
+  "opentelemetry-exporter-otlp",
+  "opentelemetry-instrumentation-fastapi",
+  "opentelemetry-instrumentation-openai",
+  "opentelemetry-instrumentation-sqlalchemy",
+  "opentelemetry-instrumentation-httpx",
+  "playwright>=1.57.0",
+  "trafilatura>=2.0.0",
+  "pypdf>=5.1.0",
+  "python-multipart>=0.0.20",
+  "alembic>=1.14.0",
+  "tenacity>=9.1.2",
+]
+
+[dependency-groups]
+test = [
+  "pytest>=7.4.0",
+  "coverage>=7.3.0",
+]
+lint = [
+  "ruff>=0.14.10",
+  "ty>=0.0.8",
+]
+doc = [
+  "mkdocs",
+  "mkdocs-material",
+  "mkdocstrings[python]",
+  "black",
+]
+dev = [
+  { include-group = "test" },
+  { include-group = "lint" },
+  { include-group = "doc" },
+]
+
+[tool.pytest.ini_options]
+addopts = ["--strict-config", "--strict-markers"]
+testpaths = ["tests"]
+
+[tool.coverage.run]
+source = ["applique_backend"]
+relative_files = true
+branch = true
+omit = [
+  '*/__init__.py',
+]
+
+[tool.coverage.report]
+skip_empty = true
+exclude_lines = [
+  'pragma: no cover',
+  '@abstract',
+  '@overload',
+  'raise AssertionError',
+  'raise NotImplementedError',
+  '\.\.\.',
+  'if __name__ == .__main__.:',
+  'if TYPE_CHECKING',
+  'if typing.TYPE_CHECKING',
+  'pass'
+]
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+fix = false
+extend-exclude = ["**/alembic/versions/*.py"]
+
+[tool.ruff.format]
+docstring-code-format = true
+indent-style = "space"
+quote-style = "double"
+
+[tool.ruff.lint]
+select = [
+  # pyflakes
+  "F",
+  # pycodestyle erros
+  "E",
+  # pycodestyle warnings
+  "W",
+  # flake8-bugbear
+  "B",
+  # mccabe
+  "C90",
+  # comprehensions
+  "C4",
+  # Ruff-specific rules
+  "RUF",
+  # flake8-bandit
+  "S",
+  # pyupgrade
+  "UP",
+  # pylint
+  "PL",
+  # isort
+  "I",
+  # flake8-async
+  "ASYNC",
+  # tidy imports
+  "TID",
+  # type-checking imports
+  "TCH",
+  # Perflint
+  "PERF",
+  # flake8-logging-format
+  "G",
+  # flake8-use-pathlib
+  "PTH",
+  # flake8-simplify
+  "SIM",
+]
+ignore = [
+  # the following two ignores are required to work seamlessly with fastapi + pydanitic which require the types during runtime
+  "TC002",  # typing-only-third-party-import
+  "TC003",  # typing-only-standard-library-import
+  "E501",
+  "PLR0912", # too many branches
+  "C901", # to complex
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["applique_backend"]
+
+[tool.ruff.lint.pylint]
+max-args = 6
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*.py" = [
+  "S101", # asserts allowed in tests...
+  "PLR6301", # method could be a function, class method, or static method
+  "PLR2004", # magic value used in comparison, consider replacing `<value>` with a constant variable
+]

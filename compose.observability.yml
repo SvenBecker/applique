@@ -1,0 +1,29 @@
+services:
+  backend:
+    environment:
+      - OTEL_SERVICE_NAME=applique
+      - OTEL_EXPORTER_OTLP_ENDPOINT=http://lgtm:4317
+      - OTEL_TRACES_EXPORTER=otlp
+      - OTEL_METRICS_EXPORTER=otlp
+      - OTEL_LOGS_EXPORTER=otlp
+    depends_on:
+      - lgtm
+
+  lgtm:
+    # All-in-one LGTM stack (Loki, Grafana, Tempo, Mimir) + OpenTelemetry Collector
+    image: grafana/otel-lgtm:latest
+    ports:
+      - "3000:3000" # Grafana UI
+      - "4317:4317" # OTLP gRPC
+      - "4318:4318" # OTLP HTTP
+    environment:
+      - ENABLE_LOGS_ALL=false
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
+      - GF_AUTH_DISABLE_LOGIN_FORM=true
+    volumes:
+      - lgtm-data:/data
+    restart: unless-stopped
+
+volumes:
+  lgtm-data:

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1d4ed8;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <!-- Document shape -->
+  <rect x="12" y="8" width="40" height="48" rx="4" fill="url(#grad)"/>
+  <!-- Folded corner -->
+  <path d="M 52 8 L 52 18 L 42 18 L 52 8 Z" fill="#1d4ed8" opacity="0.5"/>
+  <!-- Letter A -->
+  <text x="32" y="42" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="white" text-anchor="middle">A</text>
+  <!-- Document lines (subtle accent) -->
+  <line x1="20" y1="18" x2="38" y2="18" stroke="white" stroke-width="1.5" opacity="0.6"/>
+  <line x1="20" y1="24" x2="44" y2="24" stroke="white" stroke-width="1.5" opacity="0.6"/>
+</svg>

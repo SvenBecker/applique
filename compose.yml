@@ -1,0 +1,43 @@
+name: applique
+services:
+  backend:
+    image: applique-backend:latest
+    init: true
+    build:
+      context: ./backend
+      args:
+        UID: ${UID:-1000}
+        GID: ${GID:-1000}
+    ports:
+      - "8000:8000"
+    environment:
+      - "VERSION=0.1.0"
+      - "DATABASE_DSN=sqlite+aiosqlite:////app/data/db.sqlite3"
+      - "DATA_DIR=/app/data"
+      - "OUTPUT_DIR=/app/output"
+    volumes:
+      - "./data:/app/data"
+      - "./output:/app/output"
+      - "./backend/logging.yml:/etc/applique/logging.yml"
+    command:
+      - "--log-config"
+      - "/etc/applique/logging.yml"
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://0.0.0.0:8000/readyz" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  frontend:
+    image: applique-frontend:latest
+    init: true
+    build:
+      context: ./frontend
+      args:
+        - "VITE_API_URL=http://localhost:8000"
+        - "VITE_APP_VERSION=0.1.0"
+        - "NODE_ENV=production"
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
