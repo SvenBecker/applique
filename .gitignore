@@ -29,14 +29,16 @@ site/
 .venv
 .python-version
 
-# Input folder
+# Data folder
 data/db.sqlite3
 data/cover_letters/**
 data/cvs/**
 data/personal_information/**
+data/prompts/**
 !data/cvs/*.example.tex
 !data/cover_letters/*.example.tex
 !data/personal_information/*.example.tex
+!data/prompts/*.jinja2.example
 
 # LaTeX build artifacts
 *.aux

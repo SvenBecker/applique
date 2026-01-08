@@ -70,7 +70,7 @@ Appliqué follows a clear, auditable pipeline:
 
 ### Prerequisites
 
-- **Python**: 3.14+ (managed via [uv](https://docs.astral.sh/uv/))
+- **Python**: 3.11+ (managed via [uv](https://docs.astral.sh/uv/))
 - **Node.js**: Latest (managed via [bun](https://bun.sh/))
 - **Docker**: For containerized deployment
 - **LaTeX**: For PDF generation (pdflatex)
