@@ -7,7 +7,7 @@
             "request": "launch",
             "module": "uvicorn",
             "args": [
-                "backend.app:build_app",
+                "applique_backend.app:build_app",
                 "--factory",
                 "--reload",
                 "--host",
@@ -17,13 +17,13 @@
             ],
             "cwd": "${workspaceFolder}/backend",
             "jinja": true,
-            "envFile": "${workspaceFolder}/.env",
+            "envFile": "${workspaceFolder}/.env"
         },
         {
             "type": "chrome",
             "request": "launch",
-            "name": "Debug Frontend: Launch Chrome against http://localhost:5173",
-            "url": "http://localhost:5173",
+            "name": "Debug Frontend: Launch Chrome against http://localhost:8080",
+            "url": "http://localhost:8080",
             "webRoot": "${workspaceFolder}/frontend"
         },
     ]

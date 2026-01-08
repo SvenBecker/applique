@@ -2,7 +2,6 @@
 
 [![Version](https://img.shields.io/badge/version-0.1.0-blue.svg)](http://github.com/SvenBecker/applique)
 [![Code style: ruff](https://img.shields.io/badge/code%20style-ruff-000000.svg)](https://docs.astral.sh/ruff/)
-[![Pre Commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
 
 **Appliqué** is an agent-driven system for generating high-quality, role-specific job applications from a single input:
 a link to a job posting.
